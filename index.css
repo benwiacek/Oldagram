@@ -3,17 +3,18 @@ body {
     padding: 0;
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
+    font-size: 13px;
     background-color: lightgray;
 }
 
 .container {
     width: 375px;
-    margin: 30px auto;
+    margin: 0 auto;
     background-color: white;
 }
 
 .logo {
-    width: 100px;
+    width: 110px;
 }
 
 .user-avatar, .poster-avatar {
@@ -26,44 +27,85 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 12px;
+    padding: 5px 10px 10px 10px;
     border-bottom: 1px solid #C6C6C6;
 }
 
-.header-post {
+main {
+    padding-bottom: 1px;
+}
 
+.header-post {
+    display: flex;
+    flex-direction: row;
+    justify-content:left;
+    align-items: center;
+    padding: 8px;
 }
 
 .poster-avatar {
+    padding-right: 5px;
 
 }
 
 .poster-name {
     font-size: 13px;
     font-weight: bold;
+    margin-bottom: 0;
 }
 
 .poster-location {
     font-size: 12px;
     font-weight: 500;
+    margin-top: 0;
 }
 
 .main-photo {
     width: 375px;
 }
 
+p {
+    margin-top: 4px;
+}
+
 .icons {
-    width: 19px;
+    display: flex;
+    flex-direction: row;
+    justify-content:left;
+    align-items: center;
+    margin-bottom: 2px;
+}
+
+.icon-heart, .icon-share, .icon-comment {
+    height: 21px;
+    padding: 8px;
+    margin-left: 0;
+}
+
+.likes {
+    font-weight: bold;
+    margin-bottom: 4px;
 }
 
 .total-likes {
+    font-size: 13px;
+    padding: 4px 4px 4px 12px;
+}
 
+.caption {
+    padding: 4px 4px 2px 12px;
 }
 
 .poster-username {
-
+    font-size: 13px;
+    font-weight: bold;
+    padding-right: 4px;
 }
 
 .poster-caption {
+    font-size: 13px;
+}
 
+.divider {
+    border-bottom: 20px solid #C6C6C6;
 }

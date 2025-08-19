@@ -4,8 +4,8 @@ const posts = [
         username: "vincey1853",
         location: "Zundert, Netherlands",
         avatar: "images/avatar-vangogh.jpg",
-        post: "images/post-vangogh.jpg",
-        comment: "just took a few mushrooms lol",
+        photo: "images/post-vangogh.jpg",
+        caption: "just took a few mushrooms lol",
         likes: 21
     },
     {
@@ -13,8 +13,8 @@ const posts = [
         username: "gus1819",
         location: "Ornans, France",
         avatar: "images/avatar-courbet.jpg",
-        post: "images/post-courbet.jpg",
-        comment: "i'm feelin a bit stressed tbh",
+        photo: "images/post-courbet.jpg",
+        caption: "i'm feelin a bit stressed tbh",
         likes: 4
     },
         {
@@ -22,21 +22,65 @@ const posts = [
         username: "jd1735",
         location: "Paris, France",
         avatar: "images/avatar-ducreux.jpg",
-        post: "images/post-ducreux.jpg",
-        comment: "gm friends! which coin are YOU stacking up today?? post below and WAGMI!",
+        photo: "images/post-ducreux.jpg",
+        caption: "gm friends! which coin are YOU stacking up today?? post below and WAGMI!",
         likes: 152
     }
 ]
 
-const fullPage = document.getElementById("timeline")
+const feed = document.getElementById("feed")
 
 function render() {
-    let total = ""
-    total += `Name: ${posts[1].username} photo: <img src="${posts[1].post}">`
-    fullPage.innerHTML = total
+    let content = ""
+    for (i=0; i<posts.length; i++) {
+        if(i<(posts.length - 1)) {
+            content += 
+                `<div class="header-post">
+                    <img class="poster-avatar" src="${posts[i].avatar}" alt="Portrait ${posts[i].name}">
+                    <div class="poster-details">
+                        <h2 class="poster-name">${posts[i].name}</h2>
+                        <h3 class="poster-location">${posts[i].location}</h3>
+                    </div>
+                </div>
+                <img class="main-photo" src="${posts[i].photo}" alt="Selfie ${posts[i].name}">
+                <div class="icons">
+                    <img class="icon-heart" src="images/icon-heart.png">
+                    <img class="icon-comment" src="images/icon-comment.png">
+                    <img class="icon-share" src="images/icon-share.png">
+                </div>
+                <p class="likes">
+                    <span class="total-likes">${posts[i].likes}</span>likes
+                </p>
+                <p class="caption">
+                    <span class="poster-username">${posts[i].username}</span><span class="poster-caption">${posts[i].caption}</span>
+                </p>
+                <div class="divider"></div>`      
+
+        } else {
+            content +=
+                `<div class="header-post">
+                    <img class="poster-avatar" src="${posts[i].avatar}" alt="Portrait ${posts[i].name}">
+                    <div class="poster-details">
+                        <h2 class="poster-name">${posts[i].name}</h2>
+                        <h3 class="poster-location">${posts[i].location}</h3>
+                    </div>
+                </div>
+                <img class="main-photo" src="${posts[i].photo}" alt="Selfie ${posts[i].name}">
+                <div class="icons">
+                    <img class="icon-heart" src="images/icon-heart.png">
+                    <img class="icon-comment" src="images/icon-comment.png">
+                    <img class="icon-share" src="images/icon-share.png">
+                </div>
+                <p class="likes">
+                    <span class="total-likes">${posts[i].likes}</span>likes
+                </p>
+                <p class="caption">
+                    <span class="poster-username">${posts[i].username}</span><span class="poster-caption">${posts[i].caption}</span>
+                </p>`            
+        }
+    }
+     
+    feed.innerHTML = content
 }
 
-
 render()
-
-
