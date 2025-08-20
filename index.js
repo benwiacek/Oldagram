@@ -1,5 +1,32 @@
 const posts = [
     {
+        name: "Edvard Munch",
+        username: "eddie1863",
+        location: "Oslo, Norway",
+        avatar: "images/avatar-munch.jpg",
+        photo: "images/post-munch.jpg",
+        caption: "1:00am and my kids won't stop sleep aaarrggh",
+        likes: 72
+    },
+    {
+        name: "Frida Kahlo",
+        username: "frida1907",
+        location: "Mexico City, Mexico",
+        avatar: "images/avatar-kahlo.jpg",
+        photo: "images/post-kahlo.jpg",
+        caption: "when all my pets decide to photo bomb...",
+        likes: 284
+    },
+    {
+        name: "Francis Bacon",
+        username: "Fran1909",
+        location: "Dublin, Ireland",
+        avatar: "images/avatar-bacon.jpg",
+        photo: "images/post-bacon.jpg",
+        caption: "looks like i'm allergic to seafood, can you tell?",
+        likes: 99
+    },
+    {
         name: "Vincent van Gogh",
         username: "vincey1853",
         location: "Zundert, Netherlands",
