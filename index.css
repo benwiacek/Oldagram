@@ -22,22 +22,19 @@ body {
     border-radius: 50%;
 }
 
-header {
+header, .header-post, .icons {
     display: flex;
     flex-direction: row;
+}
+
+header {
     justify-content: space-between;
     align-items: center;
     padding: 5px 10px 10px 10px;
     border-bottom: 1px solid #C6C6C6;
 }
 
-main {
-    padding-bottom: 1px;
-}
-
 .header-post {
-    display: flex;
-    flex-direction: row;
     justify-content:left;
     align-items: center;
     padding: 8px;
@@ -45,7 +42,6 @@ main {
 
 .poster-avatar {
     padding-right: 5px;
-
 }
 
 .poster-name {
@@ -69,8 +65,6 @@ p {
 }
 
 .icons {
-    display: flex;
-    flex-direction: row;
     justify-content:left;
     align-items: center;
     margin-bottom: 2px;
@@ -87,23 +81,13 @@ p {
     margin-bottom: 4px;
 }
 
-.total-likes {
-    font-size: 13px;
+.total-likes, .caption {
     padding: 4px 4px 4px 12px;
 }
 
-.caption {
-    padding: 4px 4px 2px 12px;
-}
-
-.poster-username {
-    font-size: 13px;
+.poster-username {  
     font-weight: bold;
     padding-right: 4px;
-}
-
-.poster-caption {
-    font-size: 13px;
 }
 
 .divider {
