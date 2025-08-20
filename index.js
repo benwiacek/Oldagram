@@ -1,4 +1,4 @@
-const posts = [
+const posts = [  //lists of Oldagram posts
     {
         name: "Edvard Munch",
         username: "eddie1863",
@@ -55,59 +55,38 @@ const posts = [
     }
 ]
 
-const feed = document.getElementById("feed")
+const feed = document.getElementById("feed")  //DOM element
 
 function render() {
     let content = ""
-    for (i=0; i<posts.length; i++) {
-        if(i<(posts.length - 1)) {
-            content += 
-                `<div class="header-post">
-                    <img class="poster-avatar" src="${posts[i].avatar}" alt="Portrait ${posts[i].name}">
-                    <div class="poster-details">
-                        <h2 class="poster-name">${posts[i].name}</h2>
-                        <h3 class="poster-location">${posts[i].location}</h3>
-                    </div>
+    for (i=0; i<posts.length; i++) {  //For-loop to go through each post of the array
+        content += 
+            `<div class="header-post">
+                <img class="poster-avatar" src="${posts[i].avatar}" alt="Portrait ${posts[i].name}">
+                <div class="poster-details">
+                    <h2 class="poster-name">${posts[i].name}</h2>
+                    <h3 class="poster-location">${posts[i].location}</h3>
                 </div>
-                <img class="main-photo" src="${posts[i].photo}" alt="Selfie ${posts[i].name}">
-                <div class="icons">
-                    <img class="icon-heart" src="images/icon-heart.png">
-                    <img class="icon-comment" src="images/icon-comment.png">
-                    <img class="icon-share" src="images/icon-share.png">
-                </div>
-                <p class="likes">
-                    <span class="total-likes">${posts[i].likes}</span>likes
-                </p>
-                <p class="caption">
-                    <span class="poster-username">${posts[i].username}</span><span class="poster-caption">${posts[i].caption}</span>
-                </p>
-                <div class="divider"></div>`      
-
-        } else {
+            </div>
+            <img class="main-photo" src="${posts[i].photo}" alt="Selfie ${posts[i].name}">
+            <div class="icons">
+                <img class="icon-heart" src="images/icon-heart.png">
+                <img class="icon-comment" src="images/icon-comment.png">
+                <img class="icon-share" src="images/icon-share.png">
+            </div>
+            <p class="likes">
+                <span class="total-likes">${posts[i].likes}</span>likes
+            </p>
+            <p class="caption">
+                <span class="poster-username">${posts[i].username}</span><span class="poster-caption">${posts[i].caption}</span>
+            </p>`
+            
+        if (i<(posts.length - 1)) {  // adds a divider at between each post except last item in the array  
             content +=
-                `<div class="header-post">
-                    <img class="poster-avatar" src="${posts[i].avatar}" alt="Portrait ${posts[i].name}">
-                    <div class="poster-details">
-                        <h2 class="poster-name">${posts[i].name}</h2>
-                        <h3 class="poster-location">${posts[i].location}</h3>
-                    </div>
-                </div>
-                <img class="main-photo" src="${posts[i].photo}" alt="Selfie ${posts[i].name}">
-                <div class="icons">
-                    <img class="icon-heart" src="images/icon-heart.png">
-                    <img class="icon-comment" src="images/icon-comment.png">
-                    <img class="icon-share" src="images/icon-share.png">
-                </div>
-                <p class="likes">
-                    <span class="total-likes">${posts[i].likes}</span>likes
-                </p>
-                <p class="caption">
-                    <span class="poster-username">${posts[i].username}</span><span class="poster-caption">${posts[i].caption}</span>
-                </p>`            
-        }
+                `<div class="divider"></div>`
+        }          
     }
-     
-    feed.innerHTML = content
-}
+    feed.innerHTML = content  // DOM manipulation outside of loop 
+} 
 
 render()
