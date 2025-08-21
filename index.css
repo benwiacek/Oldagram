@@ -9,8 +9,10 @@ body {
 
 .container {
     width: 375px;
-    margin: 0 auto;
+    margin: 10px auto;
     background-color: white;
+    border: 5px solid black;
+    border-radius: 20px;
 }
 
 .logo {
@@ -107,4 +109,9 @@ p {
 
 .divider {
     border-bottom: 20px solid #C6C6C6;
+}
+
+.liked {
+    fill: red;
+    stroke: red;
 }

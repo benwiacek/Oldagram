@@ -90,25 +90,21 @@ function render() {
 
 render()
 
-function likes() {
-    for (let i=0; i<posts.length; i++) {
-        document.querySelectorAll(`.post${i}`).forEach(el => { // selects all the elements with the post class (img and heart)
-            el.addEventListener("dblclick", function () { // add eventlistener to both
-                const heartPath = document.querySelector(`#heart-${i} path`);
-                heartPath.style.fill = heartPath.style.fill === "red" ? "none" : "red"; // toggle the red fill color of the heart on and off
-                heartPath.style.stroke = heartPath.style.stroke === "red" ? "black" : "red"; // toggle the black stroke of the heart on and off
+let hearts = document.querySelectorAll(".icon-heart") // selects all the heart icons
+let images = document.querySelectorAll(".main-photo") // select all the post images
 
-                // Update likes count too
-                const likes = document.getElementById(`likes-${i}`);
-                if (heartPath.style.fill === "red") {
-                    posts[i].likes++;
-                } else {
-                    posts[i].likes--; // if heart is red, then increase the count, if not, then decrease the count
-                }
-                likes.innerHTML = posts[i].likes;
-            });
-        });
+function like(i) {
+    hearts[i].classList.toggle("liked") // when function is triggered, the related heart icon gets/removed the new class
+    if (hearts[i].classList.contains("liked")) {
+        posts[i].likes++ // increase or decrease likes count in the original array based on whether it has "liked" class or not
+    } else {
+        posts[i].likes--
     }
-}   
+    const likes = document.getElementById(`likes-${i}`);
+    likes.innerHTML = posts[i].likes; // updated likes count in the DOM
+}
 
-likes()
+for (let i=0; i<posts.length; i++) {  // triggers the function with a click on the heart or double click on the image
+    hearts[i].addEventListener("click", () => like(i))
+    images[i].addEventListener("dblclick", () => like(i))
+}
