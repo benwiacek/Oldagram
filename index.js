@@ -5,7 +5,7 @@ const posts = [  //lists of Oldagram posts
         location: "Oslo, Norway",
         avatar: "images/avatar-munch.jpg",
         photo: "images/post-munch.jpg",
-        caption: "1:00am and my kids won't stop sleep aaarrggh",
+        caption: "1:00am and my kids won't sleep aaarrggh",
         likes: 72
     },
     {
