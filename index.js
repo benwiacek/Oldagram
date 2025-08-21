@@ -55,11 +55,10 @@ const posts = [  //lists of Oldagram posts
     }
 ]
 
-const feed = document.getElementById("feed")  //DOM element
-
 function render() {
+    const feed = document.getElementById("feed")
     let content = ""
-    for (i=0; i<posts.length; i++) {  //For-loop to go through each post of the array
+    for (let i=0; i<posts.length; i++) {  //For-loop to go through each post of the array
         content += 
             `<div class="header-post">
                 <img class="poster-avatar" src="${posts[i].avatar}" alt="Portrait ${posts[i].name}">
@@ -68,14 +67,14 @@ function render() {
                     <h3 class="poster-location">${posts[i].location}</h3>
                 </div>
             </div>
-            <img class="main-photo" src="${posts[i].photo}" alt="Selfie ${posts[i].name}">
+            <img class="main-photo post${i}" src="${posts[i].photo}" alt="Selfie ${posts[i].name}">
             <div class="icons">
-                <img class="icon-heart" src="images/icon-heart.png">
+                <svg class="icon-heart post${i}" id="heart-${i}" xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg>
                 <img class="icon-comment" src="images/icon-comment.png">
                 <img class="icon-share" src="images/icon-share.png">
             </div>
             <p class="likes">
-                <span class="total-likes">${posts[i].likes}</span>likes
+                <span class="total-likes" id="likes-${i}">${posts[i].likes}</span>likes
             </p>
             <p class="caption">
                 <span class="poster-username">${posts[i].username}</span><span class="poster-caption">${posts[i].caption}</span>
@@ -90,3 +89,26 @@ function render() {
 } 
 
 render()
+
+function likes() {
+    for (let i=0; i<posts.length; i++) {
+        document.querySelectorAll(`.post${i}`).forEach(el => { // selects all the elements with the post class (img and heart)
+            el.addEventListener("dblclick", function () { // add eventlistener to both
+                const heartPath = document.querySelector(`#heart-${i} path`);
+                heartPath.style.fill = heartPath.style.fill === "red" ? "none" : "red"; // toggle the red fill color of the heart on and off
+                heartPath.style.stroke = heartPath.style.stroke === "red" ? "black" : "red"; // toggle the black stroke of the heart on and off
+
+                // Update likes count too
+                const likes = document.getElementById(`likes-${i}`);
+                if (heartPath.style.fill === "red") {
+                    posts[i].likes++;
+                } else {
+                    posts[i].likes--; // if heart is red, then increase the count, if not, then decrease the count
+                }
+                likes.innerHTML = posts[i].likes;
+            });
+        });
+    }
+}   
+
+likes()

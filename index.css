@@ -71,14 +71,29 @@ p {
 }
 
 .icon-heart, .icon-share, .icon-comment {
-    height: 21px;
     padding: 8px;
     margin-left: 0;
+}
+
+.icon-heart {
+    height: 24px;
+}
+
+.icon-share, .icon-comment {
+    height: 22px;
 }
 
 .likes {
     font-weight: bold;
     margin-bottom: 4px;
+}
+
+.icons, .likes {
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .total-likes, .caption {
