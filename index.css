@@ -81,6 +81,11 @@ p {
     height: 24px;
 }
 
+.icon-heart:hover {
+    transform: scale(0.9);
+    transition: transform 0.2s ease;
+}
+
 .icon-share, .icon-comment {
     height: 22px;
 }
