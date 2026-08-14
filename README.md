@@ -2,6 +2,8 @@
 
 An Instagram clone featuring famous artists' humorous selfies. Built entirely with JavaScript - no static HTML posts.
 
+<img width="600" height="400" alt="oldagram-screenshot" src="https://github.com/user-attachments/assets/dcb5a569-c7fa-4fea-96a2-ddd864425579" />
+
 [**Live Demo**](https://oldagram-ben.netlify.app/)
 
 ## Features
